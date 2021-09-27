@@ -6,10 +6,15 @@ const STATUS = `.status`;
 const TIME = `.time`;
 const ADDRESS = `.address`;
 const CALENDAR = `.calendar`;
-const commands: string[] = [STATUS, TIME, ADDRESS, CALENDAR];
+const FITTING = `.fitting`;
+const SRP = `.srp`;
+const commands: string[] = [STATUS, TIME, ADDRESS, CALENDAR, FITTING, DOCTRINE, SRP];
 
 const seataddr = process.env.APP_URL;
 const calendar = `${seataddr}` + `/calendar/operation`;
+const fittings = `${seataddr}` + `/fitting`;
+const doctrine = `${seataddr}` + `/fitting/doctrine`;
+const srp = `${seataddr}` + `/srp`;
 
 declare module 'axios' {
   export interface AxiosRequestConfig {
@@ -51,7 +56,7 @@ export const handle = (m: Message): void => {
           let headers = ``;
 		  headers = r.headers.date
 
-          const msg = `EveTime UTC: ${headers}`;
+          const msg = `Eve Time: ${headers}`;
 
           m.channel.send(`${m.author}, ${msg}`);
         })
@@ -89,7 +94,34 @@ export const handle = (m: Message): void => {
 		else {
 		m.channel.send(`${m.author}, SeAT Calendar ${calendar}`);
 		}
-		break
+		break;
+    }
+    case FITTING: {
+    	if (seataddr === ``) {
+    		m.channel.send(`${m.author}, The SeAT address is currently not set`);
+   		}
+   		else {
+    	m.channel.send(`${m.author}, SeAT Fittings ${fitting}`);
+    	}
+    	break;
+    }
+    case DOCTRINE: {
+    	if (seataddr === ``) {
+    		m.channel.send(`${m.author}, The SeAT address is currently not set`);
+   		}
+   		else {
+    	m.channel.send(`${m.author}, SeAT Doctrines ${doctrine}`);
+    	}
+    	break;
+    }
+    case SRP: {
+    	if (seataddr === ``) {
+    		m.channel.send(`${m.author}, The SeAT address is currently not set`);
+   		}
+   		else {
+    	m.channel.send(`${m.author}, SeAT SRP ${srp}`);
+    	}
+    	break
     }
 
 
