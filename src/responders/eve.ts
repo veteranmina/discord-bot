@@ -7,12 +7,13 @@ const TIME = `.time`;
 const ADDRESS = `.address`;
 const CALENDAR = `.calendar`;
 const FITTING = `.fitting`;
+const DOCTRINE = `.doctrine`;
 const SRP = `.srp`;
 const commands: string[] = [STATUS, TIME, ADDRESS, CALENDAR, FITTING, DOCTRINE, SRP];
 
 const seataddr = process.env.APP_URL;
 const calendar = `${seataddr}` + `/calendar/operation`;
-const fittings = `${seataddr}` + `/fitting`;
+const fitting = `${seataddr}` + `/fitting`;
 const doctrine = `${seataddr}` + `/fitting/doctrine`;
 const srp = `${seataddr}` + `/srp`;
 
