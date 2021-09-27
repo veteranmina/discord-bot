@@ -13,9 +13,10 @@ export class Handler {
 
   constructor() {
     this.handlers.push({matcher: ping.matcher, handle: ping.handle}); // bot ping
-    this.handlers.push({matcher: doc.matcher, handle: doc.handle}); // documentation
-    this.handlers.push({matcher: esi.matcher, handle: esi.handle}); // esi
-    this.handlers.push({matcher: sde.matcher, handle: sde.handle}); // sde
+    //this.handlers.push({matcher: doc.matcher, handle: doc.handle}); // documentation
+    //this.handlers.push({matcher: esi.matcher, handle: esi.handle}); // esi
+    //this.handlers.push({matcher: sde.matcher, handle: sde.handle}); // sde
+    this.handlers.push({matcher: eve.matcher, handle: eve.handle}); // U4N
   }
 
   respond(m: Message): void {

@@ -4,7 +4,7 @@ RUN apk update --no-cache && \
     apk add git
 
 RUN cd / && \
-    git clone https://github.com/eveseat/discord-bot && \
+    git clone https://github.com/veteranmina/discord-bot && \
     cd discord-bot && \
     npm i && \
     npm run build

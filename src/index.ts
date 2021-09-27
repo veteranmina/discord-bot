@@ -3,10 +3,15 @@ import { Handler } from "./say";
 import * as log from './lib/console'
 
 const token = process.env.TOKEN;
+const seataddr = process.env.seataddr;
 
 if (token === ``) {
   log.error(`no discord token found in env. set \`TOKEN\` bye!`);
   process.exit();
+}
+
+if (seataddr === ``) {
+  log.error(`no seat address found in env. set \`SEATADDR\``);
 }
 
 const client: Client = new Client({

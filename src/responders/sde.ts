@@ -29,7 +29,7 @@ const commands: CommandHandler[] = [
               const seat_resource = r.data[`version`];
 
               if (seat_resource == fuzzwork) {
-                m.channel.send(`${m.author}, hoory! 🎉 The SDE is up to date in SeAT with version \`${fuzzwork}\``);
+                m.channel.send(`${m.author}, hooray! 🎉 The SDE is up to date in SeAT with version \`${fuzzwork}\``);
                 return;
               }
 
@@ -38,8 +38,8 @@ const commands: CommandHandler[] = [
             });
 
         }).catch(e => {
-          console.log(`an error occured: ${e}`);
-          m.channel.send(`${m.author}, an error occured checking SDE data`);
+          console.log(`an error occurred: ${e}`);
+          m.channel.send(`${m.author}, an error occurred checking SDE data`);
         });
     }
   },
@@ -54,8 +54,8 @@ const commands: CommandHandler[] = [
           console.log(r.data.name);
           m.channel.send(`${m.author}, type \`${type_id}\` has the name \`${r.data.name}\``);
         }).catch(e => {
-          console.log(`an error occured: ${e}`);
-          m.channel.send(`${m.author}, an error occured doing a type id lookup.`);
+          console.log(`an error occurred: ${e}`);
+          m.channel.send(`${m.author}, an error occurred doing a type id lookup.`);
         });
     }
   }
