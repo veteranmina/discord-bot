@@ -9,7 +9,7 @@ const CALENDAR = `.calendar`;
 const commands: string[] = [STATUS, TIME, ADDRESS, CALENDAR];
 
 const seataddr = process.env.app_url;
-const calendar = ${seataddr} + `/calendar/operation`;
+const calendar = `${seataddr}` + `/calendar/operation`;
 
 declare module 'axios' {
   export interface AxiosRequestConfig {
@@ -87,7 +87,7 @@ export const handle = (m: Message): void => {
 			m.channel.send(`${m.author}, The SeAT address is currently not set`);
 		}
 		else {
-		m.channel.send(`${m.author}, SeAT Calendar \`${seataddr}\`/calendar/operation`);
+		m.channel.send(`${m.author}, SeAT Calendar ${calendar}`);
 		}
 		break
     }
