@@ -25,7 +25,7 @@ jobs:
       - uses: mr-smithers-excellent/docker-build-push@v5
         name: Publish to Docker Repo
         with:
-          image: eveseat/discord-bot
+          image: veteranmina/discord-bot
           addLatest: true
           tags: latest
           registry: docker.io
