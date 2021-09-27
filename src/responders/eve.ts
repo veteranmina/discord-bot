@@ -8,7 +8,7 @@ const ADDRESS = `.address`;
 const CALENDAR = `.calendar`;
 const commands: string[] = [STATUS, TIME, ADDRESS, CALENDAR];
 
-const seataddr = process.env.app_url;
+const seataddr = process.env.APP_URL;
 const calendar = `${seataddr}` + `/calendar/operation`;
 
 declare module 'axios' {
