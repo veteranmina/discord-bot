@@ -4,10 +4,12 @@ import Axios from 'axios'
 
 const STATUS = `.status`;
 const TIME = `.time`;
+const ADDRESS = `.address`;
+const CALENDAR = `.calendar`;
 const commands: string[] = [STATUS, TIME, ADDRESS, CALENDAR];
 
 const seataddr = process.env.app_url;
-const calendar = concat($seataddr,`/calendar/operation`);
+const calendar = ${seataddr} + `/calendar/operation`;
 
 declare module 'axios' {
   export interface AxiosRequestConfig {
@@ -69,10 +71,8 @@ export const handle = (m: Message): void => {
 
           m.channel.send(`${m.author}, failed to call /ping endpoint with error: ${e}\n\n${msg}`);
         })
-      break
+      break;
 	}
-
-
 	case ADDRESS: {
 		if (seataddr === ``) {
 			m.channel.send(`${m.author}, The SeAT address is currently not set`);
@@ -82,8 +82,6 @@ export const handle = (m: Message): void => {
 		}
 		break;
 	}
-
-
 	case CALENDAR: {
 		if (seataddr === ``) {
 			m.channel.send(`${m.author}, The SeAT address is currently not set`);
@@ -91,7 +89,7 @@ export const handle = (m: Message): void => {
 		else {
 		m.channel.send(`${m.author}, SeAT Calendar \`${seataddr}\`/calendar/operation`);
 		}
-		break;
+		break
     }
 
 
