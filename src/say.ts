@@ -3,9 +3,7 @@ import { IHandle } from "./lib/interfaces"
 import * as log from './lib/console'
 
 import * as ping from './responders/ping'
-import * as doc from './responders/doc'
-import * as esi from './responders/esi'
-import * as sde from './responders/sde'
+import * as eve from './responders/eve'.
 
 export class Handler {
 
