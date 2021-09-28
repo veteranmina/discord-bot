@@ -2,20 +2,24 @@ import { Message } from 'discord.js'
 import * as log from '../lib/console'
 import Axios from 'axios'
 
-const STATUS = `.status`;
-const TIME = `.time`;
-const SEAT = `.seat`;
 const CALENDAR = `.calendar`;
-const FITTING = `.fitting`;
 const DOCTRINE = `.doctrine`;
+const FITTING = `.fitting`;
+const MAPPER = `.mapper`;
+const STATUS = `.status`;
+const SEAT = `.seat`;
 const SRP = `.srp`;
-const commands: string[] = [STATUS, TIME, SEAT, CALENDAR, FITTING, DOCTRINE, SRP];
+const TIME = `.time`;
+const ZKILL = `.zkill`;
+const commands: string[] = [CALENDAR, DOCTRINE, FITTING, MAPPER, STATUS, SEAT, SRP, TIME, ZKILL];
 
-const seataddr = process.env.APP_URL;
 const calendar = `${seataddr}` + `/calendar/operation`;
-const fitting = `${seataddr}` + `/fitting`;
 const doctrine = `${seataddr}` + `/fitting/doctrine`;
+const fitting = `${seataddr}` + `/fitting`;
+const mapper = process.env.MAPPER;
+const seataddr = process.env.APP_URL;
 const srp = `${seataddr}` + `/srp`;
+const zkill = process.env.ZADDR
 
 declare module 'axios' {
   export interface AxiosRequestConfig {
@@ -84,7 +88,7 @@ export const handle = (m: Message): void => {
 			m.channel.send(`${m.author}, The SeAT address is currently not set`);
 		}
 		else {
-		m.channel.send(`${m.author}, The SeAT address is ${seataddr}`);
+		m.channel.send(`${m.author}, The SeAT address is: ${seataddr}`);
 		}
 		break;
 	}
@@ -93,7 +97,7 @@ export const handle = (m: Message): void => {
 			m.channel.send(`${m.author}, The SeAT address is currently not set`);
 		}
 		else {
-		m.channel.send(`${m.author}, SeAT Calendar ${calendar}`);
+		m.channel.send(`${m.author}, SeAT Calendar: ${calendar}`);
 		}
 		break;
     }
@@ -102,7 +106,7 @@ export const handle = (m: Message): void => {
     		m.channel.send(`${m.author}, The SeAT address is currently not set`);
    		}
    		else {
-    	m.channel.send(`${m.author}, SeAT Fittings ${fitting}`);
+    	m.channel.send(`${m.author}, SeAT Fittings: ${fitting}`);
     	}
     	break;
     }
@@ -111,7 +115,7 @@ export const handle = (m: Message): void => {
     		m.channel.send(`${m.author}, The SeAT address is currently not set`);
    		}
    		else {
-    	m.channel.send(`${m.author}, SeAT Doctrines ${doctrine}`);
+    	m.channel.send(`${m.author}, SeAT Doctrines: ${doctrine}`);
     	}
     	break;
     }
@@ -120,11 +124,29 @@ export const handle = (m: Message): void => {
     		m.channel.send(`${m.author}, The SeAT address is currently not set`);
    		}
    		else {
-    	m.channel.send(`${m.author}, SeAT SRP ${srp}`);
+    	m.channel.send(`${m.author}, SeAT SRP: ${srp}`);
     	}
-    	break
+    	break;
+    }
+    case MAPPER: {
+    	if (mapper === ``) {
+    		m.channel.send(`${m.author}, Mapper address is currently not set`);
+   		}
+   		else {
+    	m.channel.send(`${m.author}, Mapper address: ${mapper}`);
+    	}
+    	break;
     }
 
+    case ZKILL: {
+    	if (zkill === ``) {
+    		m.channel.send(`${m.author}, Zkillboard address is currently not set`);
+   		}
+   		else {
+    	m.channel.send(`${m.author}, Zkillboard: ${zkill}`);
+    	}
+    	break;
+    }
 
     default: {
       const valid = commands.map(e => `\`${matcher}${e}\``).join(`, `);
