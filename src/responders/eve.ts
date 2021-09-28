@@ -24,7 +24,7 @@ declare module 'axios' {
   }
 }
 
-export const matcher = `.eve`;
+export const matcher = `!eve`;
 export const handle = (m: Message): void => {
   log.debug(`message from ${m.author.username}. sending an eve related response`);
 

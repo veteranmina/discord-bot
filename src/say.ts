@@ -16,9 +16,9 @@ export class Handler {
 
   respond(m: Message): void {
     if (m.author.bot) return;  // ignore the bot itself
-    if (!m.content.startsWith(`.`)) return; // ignore non-bot messages
+    if (!m.content.startsWith(`!`)) return; // ignore non-bot messages
 
-    if (m.content == `.`) {
+    if (m.content == `!`) {
       const c = this.handlers.map(e => `\`${e.matcher}\``).join(`, `);
       m.channel.send(`${m.author}, available bot commands: ${c}`);
       return
