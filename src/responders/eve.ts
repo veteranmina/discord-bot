@@ -2,6 +2,10 @@ import { Message } from 'discord.js'
 import * as log from '../lib/console'
 import Axios from 'axios'
 
+const mapper = process.env.MAPPER;
+const seataddr = process.env.APP_URL;
+const zkill = process.env.ZADDR;
+
 const CALENDAR = `.calendar`;
 const DOCTRINE = `.doctrine`;
 const FITTING = `.fitting`;
@@ -16,10 +20,8 @@ const commands: string[] = [CALENDAR, DOCTRINE, FITTING, MAPPER, STATUS, SEAT, S
 const calendar = `${seataddr}` + `/calendar/operation`;
 const doctrine = `${seataddr}` + `/fitting/doctrine`;
 const fitting = `${seataddr}` + `/fitting`;
-const mapper = process.env.MAPPER;
-const seataddr = process.env.APP_URL;
-const srp = `${seataddr}` + `/srp`;
-const zkill = process.env.ZADDR
+const srp = `${seataddr}` + `/srp`
+
 
 declare module 'axios' {
   export interface AxiosRequestConfig {
