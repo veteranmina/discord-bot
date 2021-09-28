@@ -4,12 +4,12 @@ import Axios from 'axios'
 
 const STATUS = `.status`;
 const TIME = `.time`;
-const ADDRESS = `.address`;
+const SEAT = `.seat`;
 const CALENDAR = `.calendar`;
 const FITTING = `.fitting`;
 const DOCTRINE = `.doctrine`;
 const SRP = `.srp`;
-const commands: string[] = [STATUS, TIME, ADDRESS, CALENDAR, FITTING, DOCTRINE, SRP];
+const commands: string[] = [STATUS, TIME, SEAT, CALENDAR, FITTING, DOCTRINE, SRP];
 
 const seataddr = process.env.APP_URL;
 const calendar = `${seataddr}` + `/calendar/operation`;
@@ -79,7 +79,7 @@ export const handle = (m: Message): void => {
         })
       break;
 	}
-	case ADDRESS: {
+	case SEAT: {
 		if (seataddr === ``) {
 			m.channel.send(`${m.author}, The SeAT address is currently not set`);
 		}
