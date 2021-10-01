@@ -1,4 +1,5 @@
 import { Message } from 'discord.js'
+import { MessageEmbed } from 'discord.js'
 import * as log from '../lib/console'
 import Axios from 'axios'
 
@@ -38,9 +39,20 @@ export const handle = (m: Message): void => {
     case STATUS: {
       Axios.get(`https://esi.evetech.net/latest/status/?datasource=tranquility`)
         .then(r => {
-          m.channel.send(`${m.author}, TQ has \`${r.data.players}\` players, ` +
-            `is running on server version ` + `\`${r.data.server_version}\` ` +
-            `and started on \`${r.data.start_time}\``);
+
+          const mEmbed = new MessageEmbed()
+            .setColor('Blue')
+            .setTitle('Eve Online Status')
+            .addFields(
+                { name: 'TQ Players', value: `${r.data.players}`},
+                { name: 'Server Version', value: `${r.data.server_version}`},
+                { name: 'Server Start Time', value: `${r.data.start_time}`},
+                )
+            .setTimestamp();
+            m.channel.send(mEmbed);
+          //m.channel.send(`${m.author}, TQ has \`${r.data.players}\` players, ` +
+          //  `is running on server version ` + `\`${r.data.server_version}\` ` +
+          //  `and started on \`${r.data.start_time}\``);
         })
         .catch(e => {
           log.error(`failed to call /status endpoint with error: ${e}`);
