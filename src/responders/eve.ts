@@ -98,7 +98,8 @@ export const handle = (m: Message): void => {
             .setColor('#FF0000')
             .setTitle('Failed to call /ping to server')
             .addFields(
-                { name: 'Response code:', value: `${e.response.status}` , `${e.response.statusText}`},
+                { name: 'Response code:', value: `${e.response.status}` , inline: true},
+                { name: 'Response Text:', value: `${e.response.statusText}`, inline: true},
                 { name: 'Response data:', value: `${JSON.stringify(e.response.data)}`},
                 { name: 'Response Headers:', value: `${headers)}`},
                 );
