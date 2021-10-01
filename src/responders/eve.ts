@@ -1,5 +1,4 @@
-import { Message } from 'discord.js'
-import { MessageEmbed } from 'discord.js'
+import { Message, MessageEmbed } from 'discord.js'
 import * as log from '../lib/console'
 import Axios from 'axios'
 
@@ -41,7 +40,7 @@ export const handle = (m: Message): void => {
         .then(r => {
 
           const mEmbed = new MessageEmbed()
-            .setColor('Blue')
+            .setColor('#0099ff')
             .setTitle('Eve Online Status')
             .addFields(
                 { name: 'TQ Players', value: `${r.data.players}`},
@@ -49,7 +48,7 @@ export const handle = (m: Message): void => {
                 { name: 'Server Start Time', value: `${r.data.start_time}`},
                 )
             .setTimestamp();
-            m.channel.send(mEmbed);
+            m.channel.send( { embeds: [mEmbed] });
           //m.channel.send(`${m.author}, TQ has \`${r.data.players}\` players, ` +
           //  `is running on server version ` + `\`${r.data.server_version}\` ` +
           //  `and started on \`${r.data.start_time}\``);
