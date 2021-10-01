@@ -76,7 +76,7 @@ export const handle = (m: Message): void => {
             .setTitle('Eve Online Time')
             .setURL('http://time.nakamura-labs.com/')
             .addFields(
-                { name: '', value: `${r.headers.date}`},
+                { name: '\u200B', value: `${r.headers.date}`},
                 );
             m.channel.send( { content: `${m.author}`, embeds: [mEmbed] });
 
