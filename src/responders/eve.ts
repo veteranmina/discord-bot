@@ -101,7 +101,7 @@ export const handle = (m: Message): void => {
                 { name: 'Response code:', value: `${e.response.status}` , inline: true},
                 { name: 'Response Text:', value: `${e.response.statusText}`, inline: true},
                 { name: 'Response data:', value: `${JSON.stringify(e.response.data)}`},
-                { name: 'Response Headers:', value: `${headers)}`},
+                { name: 'Response Headers:', value: `${headers}`},
                 );
             m.channel.send( { content: `${m.author}`, embeds: [mEmbed] });
 
