@@ -42,16 +42,13 @@ export const handle = (m: Message): void => {
           const mEmbed = new MessageEmbed()
             .setColor('#0099ff')
             .setTitle('Eve Online Status')
+            .setURL('https://eve-offline.net/')
             .addFields(
-                { name: 'TQ Players', value: `${r.data.players}`},
-                { name: 'Server Version', value: `${r.data.server_version}`},
+                { name: 'TQ Players', value: `${r.data.players}`, inline: true},
+                { name: 'Server Version', value: `${r.data.server_version}`, inline: true},
                 { name: 'Server Start Time', value: `${r.data.start_time}`},
-                )
-            .setTimestamp();
-            m.channel.send( { embeds: [mEmbed] });
-          //m.channel.send(`${m.author}, TQ has \`${r.data.players}\` players, ` +
-          //  `is running on server version ` + `\`${r.data.server_version}\` ` +
-          //  `and started on \`${r.data.start_time}\``);
+                );
+            m.channel.send( { content: `${m.author}`, embeds: [mEmbed] });
         })
         .catch(e => {
           log.error(`failed to call /status endpoint with error: ${e}`);
@@ -71,12 +68,21 @@ export const handle = (m: Message): void => {
       Axios.get(`https://esi.evetech.net/ping`)
         .then(r => {
 
-          let headers = ``;
-		  headers = r.headers.date
+          //let headers = ``;
+		  //headers = r.headers.date
 
-          const msg = `Eve Time: ${headers}`;
+          const mEmbed = new MessageEmbed()
+            .setColor('#0099ff')
+            .setTitle('Eve Online Time')
+            .setURL('http://time.nakamura-labs.com/')
+            .addFields(
+                { name: 'Eve Time', value: `${r.headers.date}`},
+                );
+            m.channel.send( { content: `${m.author}`, embeds: [mEmbed] });
 
-          m.channel.send(`${m.author}, ${msg}`);
+          //const msg = `Eve Time: ${headers}`;
+
+          //m.channel.send(`${m.author}, ${msg}`);
         })
         .catch(e => {
 
@@ -88,11 +94,21 @@ export const handle = (m: Message): void => {
             }
           }
 
-          const msg = `Response code: \`${e.response.status} (${e.response.statusText})\`\n` +
-            `Response data: \`${JSON.stringify(e.response.data)}\`\n` +
-            `Response headers: ${headers}`;
+          const mEmbed = new MessageEmbed()
+            .setColor('#FF0000')
+            .setTitle('Failed to call /ping to server')
+            .addFields(
+                { name: 'Response code:', value: `${e.response.status}` , `${e.response.statusText}`},
+                { name: 'Response data:', value: `${JSON.stringify(e.response.data)}`},
+                { name: 'Response Headers:', value: `${headers)}`},
+                );
+            m.channel.send( { content: `${m.author}`, embeds: [mEmbed] });
 
-          m.channel.send(`${m.author}, failed to call /ping endpoint with error: ${e}\n\n${msg}`);
+          //const msg = `Response code: \`${e.response.status} (${e.response.statusText})\`\n` +
+          //  `Response data: \`${JSON.stringify(e.response.data)}\`\n` +
+          //  `Response headers: ${headers}`;
+
+          //m.channel.send(`${m.author}, failed to call /ping endpoint with error: ${e}\n\n${msg}`);
         })
       break;
 	}
