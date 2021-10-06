@@ -14,7 +14,7 @@ const doctrine = `${seataddr}` + `/fitting/doctrine`;
 const fitting = `${seataddr}` + `/fitting`;
 const srp = `${seataddr}` + `/srp`
 
-export const master = `!seat`;
+export const matcher = `!seat`;
 export const handle = (m: Message): void => {
   log.debug(`message from ${m.author.username}. sending an seat related response`);
 
