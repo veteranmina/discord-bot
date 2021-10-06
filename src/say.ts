@@ -5,6 +5,7 @@ import * as log from './lib/console'
 import * as ping from './responders/ping'
 import * as eve from './responders/eve'
 import * as seat from './responders/seat'
+import * as tools from './responders/tools'
 
 export class Handler {
 
@@ -14,6 +15,7 @@ export class Handler {
     this.handlers.push({matcher: ping.matcher, handle: ping.handle}); // bot ping
     this.handlers.push({matcher: eve.matcher, handle: eve.handle}); // eve
     this.handlers.push({matcher: seat.matcher, handle: seat.handle}); // seat
+    this.handlers.push({matcher: tools.matcher, handle: tools.handle}); // tools
   }
 
   respond(m: Message): void {

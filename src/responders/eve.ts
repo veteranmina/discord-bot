@@ -2,15 +2,10 @@ import { Message, MessageEmbed } from 'discord.js'
 import * as log from '../lib/console'
 import Axios from 'axios'
 
-const mapper = process.env.MAPPER;
-const zkill = process.env.ZADDR;
-
-const MAPPER = `.mapper`;
 const STATUS = `.status`;
-
 const TIME = `.time`;
-const ZKILL = `.zkill`;
-const commands: string[] = [MAPPER, TIME, ZKILL];
+
+const commands: string[] = [STATUS, TIME];
 
 declare module 'axios' {
   export interface AxiosRequestConfig {
@@ -91,27 +86,6 @@ export const handle = (m: Message): void => {
         })
       break;
 	}
-
-    case MAPPER: {
-    	if (mapper === undefined) {
-    		m.channel.send(`${m.author}, Mapper address is currently not set`);
-   		}
-   		else {
-    	m.channel.send(`${m.author}, Mapper address: ${mapper}`);
-    	}
-    	break;
-    }
-
-    case ZKILL: {
-    	if (zkill === undefined) {
-    		m.channel.send(`${m.author}, Zkillboard address is currently not set`);
-   		}
-   		else {
-    	m.channel.send(`${m.author}, Zkillboard: ${zkill}`);
-    	}
-    	break;
-    }
-
     default: {
       const valid = commands.map(e => `\`${matcher}${e}\``).join(`, `);
       m.channel.send(`${m.author}, available \`${matcher}\` commands are: ${valid}`);

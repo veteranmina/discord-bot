@@ -26,7 +26,7 @@ export const handle = (m: Message): void => {
         .setColor('#0099ff')
         .setTitle('SeAT Related Links')
         .addFields(
-            { name: 'Seat Address', value: `${seataddr}`},
+            { name: 'Seat', value: `${seataddr}`},
             { name: 'Seat Calendar', value: `${calendar}`},
             { name: 'Seat Doctrine', value: `${doctrine}`},
             { name: 'Seat Fitting', value: `${fitting}`},
