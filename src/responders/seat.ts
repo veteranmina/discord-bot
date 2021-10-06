@@ -34,5 +34,4 @@ export const handle = (m: Message): void => {
             );
     m.channel.send( { content: `${m.author}`, embeds: [mEmbed] });
   }
-    break;
 };
