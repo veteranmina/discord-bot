@@ -26,11 +26,11 @@ export const handle = (m: Message): void => {
         .setColor('#0099ff')
         .setTitle('SeAT Related Links')
         .addFields(
-            { name: Seat Address, value: [Link](`${seataddr}`)},
-            { name: Seat Calendar, value: [Link](`${calendar}`)},
-            { name: Seat Doctrine, value: [Link](`${doctrine}`)},
-            { name: Seat Fitting, value: [Link](`${fitting}`)},
-            { name: Seat SRP, value: [Link](`${srp}`)}
+            { name: 'Seat Address', value: [Link](`${seataddr}`)},
+            { name: 'Seat Calendar', value: [Link](`${calendar}`)},
+            { name: 'Seat Doctrine', value: [Link](`${doctrine}`)},
+            { name: 'Seat Fitting', value: [Link](`${fitting}`)},
+            { name: 'Seat SRP', value: [Link](`${srp}`)}
             );
     m.channel.send( { content: `${m.author}`, embeds: [mEmbed] });
   }
