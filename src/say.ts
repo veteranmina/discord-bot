@@ -4,6 +4,7 @@ import * as log from './lib/console'
 
 import * as ping from './responders/ping'
 import * as eve from './responders/eve'
+import * as seat from './responders/seat'
 
 export class Handler {
 
@@ -12,6 +13,7 @@ export class Handler {
   constructor() {
     this.handlers.push({matcher: ping.matcher, handle: ping.handle}); // bot ping
     this.handlers.push({matcher: eve.matcher, handle: eve.handle}); // eve
+    this.handlers.push({matcher: seat.matcher, handle: seat.handle}); // seat
   }
 
   respond(m: Message): void {
@@ -27,7 +29,7 @@ export class Handler {
     log.info(`handling message: ${m.content}`);
 
     this.handlers.every(h => {
-      log.debug(`checking message stars with ${h.matcher}`);
+      log.debug(`checking message starts with ${h.matcher}`);
       if (!m.content.startsWith(h.matcher)) return true;
       h.handle(m);
 

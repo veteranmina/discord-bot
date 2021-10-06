@@ -3,25 +3,14 @@ import * as log from '../lib/console'
 import Axios from 'axios'
 
 const mapper = process.env.MAPPER;
-const seataddr = process.env.APP_URL;
 const zkill = process.env.ZADDR;
 
-const CALENDAR = `.calendar`;
-const DOCTRINE = `.doctrine`;
-const FITTING = `.fitting`;
 const MAPPER = `.mapper`;
 const STATUS = `.status`;
-const SEAT = `.seat`;
-const SRP = `.srp`;
+
 const TIME = `.time`;
 const ZKILL = `.zkill`;
-const commands: string[] = [CALENDAR, DOCTRINE, FITTING, MAPPER, STATUS, SEAT, SRP, TIME, ZKILL];
-
-const calendar = `${seataddr}` + `/calendar/operation`;
-const doctrine = `${seataddr}` + `/fitting/doctrine`;
-const fitting = `${seataddr}` + `/fitting`;
-const srp = `${seataddr}` + `/srp`
-
+const commands: string[] = [MAPPER, TIME, ZKILL];
 
 declare module 'axios' {
   export interface AxiosRequestConfig {
@@ -68,9 +57,6 @@ export const handle = (m: Message): void => {
       Axios.get(`https://esi.evetech.net/ping`)
         .then(r => {
 
-          //let headers = ``;
-		  //headers = r.headers.date
-
           const mEmbed = new MessageEmbed()
             .setColor('#0099ff')
             .setTitle('Eve Online Time')
@@ -80,9 +66,6 @@ export const handle = (m: Message): void => {
                 );
             m.channel.send( { content: `${m.author}`, embeds: [mEmbed] });
 
-          //const msg = `Eve Time: ${headers}`;
-
-          //m.channel.send(`${m.author}, ${msg}`);
         })
         .catch(e => {
 
@@ -105,61 +88,12 @@ export const handle = (m: Message): void => {
                 );
             m.channel.send( { content: `${m.author}`, embeds: [mEmbed] });
 
-          //const msg = `Response code: \`${e.response.status} (${e.response.statusText})\`\n` +
-          //  `Response data: \`${JSON.stringify(e.response.data)}\`\n` +
-          //  `Response headers: ${headers}`;
-
-          //m.channel.send(`${m.author}, failed to call /ping endpoint with error: ${e}\n\n${msg}`);
         })
       break;
 	}
-	case SEAT: {
-		if (seataddr === ``) {
-			m.channel.send(`${m.author}, The SeAT address is currently not set`);
-		}
-		else {
-		m.channel.send(`${m.author}, The SeAT address is: ${seataddr}`);
-		}
-		break;
-	}
-	case CALENDAR: {
-		if (seataddr === ``) {
-			m.channel.send(`${m.author}, The SeAT address is currently not set`);
-		}
-		else {
-		m.channel.send(`${m.author}, SeAT Calendar: ${calendar}`);
-		}
-		break;
-    }
-    case FITTING: {
-    	if (seataddr === ``) {
-    		m.channel.send(`${m.author}, The SeAT address is currently not set`);
-   		}
-   		else {
-    	m.channel.send(`${m.author}, SeAT Fittings: ${fitting}`);
-    	}
-    	break;
-    }
-    case DOCTRINE: {
-    	if (seataddr === ``) {
-    		m.channel.send(`${m.author}, The SeAT address is currently not set`);
-   		}
-   		else {
-    	m.channel.send(`${m.author}, SeAT Doctrines: ${doctrine}`);
-    	}
-    	break;
-    }
-    case SRP: {
-    	if (seataddr === ``) {
-    		m.channel.send(`${m.author}, The SeAT address is currently not set`);
-   		}
-   		else {
-    	m.channel.send(`${m.author}, SeAT SRP: ${srp}`);
-    	}
-    	break;
-    }
+
     case MAPPER: {
-    	if (mapper === ``) {
+    	if (mapper === undefined) {
     		m.channel.send(`${m.author}, Mapper address is currently not set`);
    		}
    		else {
@@ -169,7 +103,7 @@ export const handle = (m: Message): void => {
     }
 
     case ZKILL: {
-    	if (zkill === ``) {
+    	if (zkill === undefined) {
     		m.channel.send(`${m.author}, Zkillboard address is currently not set`);
    		}
    		else {
