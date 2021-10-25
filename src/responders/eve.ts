@@ -35,7 +35,8 @@ export const handle = (m: Message): void => {
             m.channel.send( { content: `${m.author}`, embeds: [mEmbed] });
         })
         .catch(e => {
-          log.error(`failed to call /status endpoint with error: ${e}`);
+          log.error(`failed to call /status endpoint with error: ${e}`)
+          m.channel.send(`${m.author}, /status endpoint from ESI ended unsuccessfully.`);
         })
       break;
     }
