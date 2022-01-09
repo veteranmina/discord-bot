@@ -31,14 +31,12 @@ Promise.all([seatdocker, api, seat_console, eveapi, notifications, services, web
                     );
             m.channel.send( { content: `${m.author}`, embeds: [mEmbed] });
         }
+		break
+	})
     .catch(error => {
-     m.channel.send(`${m.author}, error encountered, unable to determine versions at this time`);
-    })
-    break
-})
-
-
-
+		m.channel.send(`${m.author}, error encountered, unable to determine versions at this time`);
+		break
+	})
 
 function getVersion(version: string) {
 return axios.get(version)
