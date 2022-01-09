@@ -34,7 +34,6 @@ export const handle = (m: Message): void => {
         .catch(error => {
             m.channel.send(`${m.author}, unable to determine current versions at this time`);
         })
-    break
 };
 
 function getVersion(version: string) {
@@ -44,6 +43,5 @@ return axios.get(version)
   })
   .catch(error => {
     log.debug('Encountered error in !versions response')
-    return error
   })
 }
