@@ -21,17 +21,17 @@ export const handle = (m: Message): void => {
 			.setColor('#0099ff')
 			.setTitle('Current SeAT Package Versions')
 			.addFields(
-				{ name: 'Seat Docker Image', value: `${values[0]}`},     //seatdocker
-				{ name: 'API', value: `${values[1]}`},                   //api
-				{ name: 'Console-Depreciated', value: `${values[2]}`},   //seat_console
-				{ name: 'EveAPI', value: `${values[3]}`},                //eveapi
-				{ name: 'Notifications', value: `${values[4]}`},         //notifications
-				{ name: 'Services', value: `${values[5]}`},              //services
-				{ name: 'Web', value: `${values[6]}`}                    //web
-        );
+				{ name: 'Seat Docker Image', value: `[${values[0]}](https://hub.docker.com/r/eveseat/seat)`},     //seatdocker
+				{ name: 'API', value: `[${values[1]}](https://github.com/eveseat/api/releases/latest)`},                   //api
+				{ name: 'Console (Depreciated)', value: `[${values[2]}](https://github.com/eveseat/api/releases/latest)`}, //seat_console
+				{ name: 'EveAPI', value: `[${values[3]}](https://github.com/eveseat/api/releases/latest)`},                //eveapi
+				{ name: 'Notifications', value: `[${values[4]}](https://github.com/eveseat/api/releases/latest)`},         //notifications
+				{ name: 'Services', value: `[${values[5]}](https://github.com/eveseat/api/releases/latest)`},              //services
+				{ name: 'Web', value: `[${values[6]}](https://github.com/eveseat/api/releases/latest)`}                    //web
+                );
 		m.channel.send( { content: `${m.author}`, embeds: [mEmbed] });
 		})
-        .catch(error => {
+		.catch(error => {
             m.channel.send(`${m.author}, unable to determine current versions at this time`);
         })
 };
