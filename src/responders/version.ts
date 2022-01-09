@@ -30,10 +30,11 @@ Promise.all([seatdocker, api, seat_console, eveapi, notifications, services, web
                     { name: 'Web', value: `${values[7]}`}                    //web
                     );
             m.channel.send( { content: `${m.author}`, embeds: [mEmbed] });
-        };
+        }
     .catch(error => {
      m.channel.send(`${m.author}, error encountered, unable to determine versions at this time`);
     })
+    break
 })
 
 
