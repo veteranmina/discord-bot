@@ -14,7 +14,6 @@ export const handle = (m: Message): void => {
   const mEmbed = new MessageEmbed()
       .setColor('#0099ff')
       .setTitle('Eve Online Tools')
-      .fields()
       .addFields(
           { name: 'Galaxy Finder', value: `${mapper}`},
           { name: 'Alliance ZkillBoard', value: `${zkill}`}
