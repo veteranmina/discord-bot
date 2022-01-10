@@ -21,13 +21,13 @@ export const handle = (m: Message): void => {
 			.setColor('#0099ff')
 			.setTitle('Current SeAT Package Versions')
 			.addFields(
-				{ name: 'Seat Docker Image', value: `[${values[0]}](https://hub.docker.com/r/eveseat/seat)`},     //seatdocker
-				{ name: 'API', value: `[${values[1]}](https://github.com/eveseat/api/releases/latest)`},                   //api
-				{ name: 'Console (Depreciated)', value: `[${values[2]}](https://github.com/eveseat/api/releases/latest)`}, //seat_console
-				{ name: 'EveAPI', value: `[${values[3]}](https://github.com/eveseat/api/releases/latest)`},                //eveapi
-				{ name: 'Notifications', value: `[${values[4]}](https://github.com/eveseat/api/releases/latest)`},         //notifications
-				{ name: 'Services', value: `[${values[5]}](https://github.com/eveseat/api/releases/latest)`},              //services
-				{ name: 'Web', value: `[${values[6]}](https://github.com/eveseat/api/releases/latest)`}                    //web
+				{ name: 'Seat Docker Image', value: `[${values[0]}](https://hub.docker.com/r/eveseat/seat)`, inline: True},              //seatdocker
+				{ name: 'API', value: `[${values[1]}](https://github.com/eveseat/api/releases/latest)`, inline: True},                   //api
+				{ name: 'Console (Depreciated)', value: `[${values[2]}](https://github.com/eveseat/api/releases/latest)`, inline: True}, //seat_console
+				{ name: 'EveAPI', value: `[${values[3]}](https://github.com/eveseat/api/releases/latest)`, inline: True},                //eveapi
+				{ name: 'Notifications', value: `[${values[4]}](https://github.com/eveseat/api/releases/latest)`, inline: True},         //notifications
+				{ name: 'Services', value: `[${values[5]}](https://github.com/eveseat/api/releases/latest)`, inline: True},              //services
+				{ name: 'Web', value: `[${values[6]}](https://github.com/eveseat/api/releases/latest)`, inline: True}                    //web
                 );
 		m.channel.send( { content: `${m.author}`, embeds: [mEmbed] });
 		})
