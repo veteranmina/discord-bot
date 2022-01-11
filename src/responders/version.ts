@@ -10,7 +10,6 @@ const notifications = getVersion(`https://img.shields.io/github/v/release/evesea
 const services = getVersion(`https://img.shields.io/github/v/release/eveseat/services.json`)
 const web = getVersion(`https://img.shields.io/github/v/release/eveseat/web.json`)
 
-
 export const matcher = `!version`
 export const handle = (m: Message): void => {
 	log.debug(`message from ${m.author.username}. sending a seat related response`);
