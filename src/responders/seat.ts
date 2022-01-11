@@ -2,8 +2,6 @@ import { Message, MessageEmbed } from 'discord.js'
 import * as log from '../lib/console'
 
 const seataddr = process.env.APP_URL;
-var eveimage = process.env.EVE_IMG;
-var imagetyp = process.env.EVE_IMG_TYPE;
 
 const CALENDAR = `.calendar`;
 const DOCTRINE = `.doctrine`;
@@ -16,17 +14,6 @@ const doctrine = `${seataddr}` + `/fitting/doctrine`;
 const fitting = `${seataddr}` + `/fitting`;
 const srp = `${seataddr}` + `/srp`
 
-if (eveimage === undefined && imagetyp === undefined) {
-    eveimage = `1000001`;
-    imagetyp = `corporations`;
-}
-if (imagetyp === undefined) {
-    imagetyp = `corporations`;
-}
-if (eveimage === undefined) {
-    eveimage = `1000001`;
-}
-
 export const matcher = `!seat`;
 export const handle = (m: Message): void => {
   log.debug(`message from ${m.author.username}. sending an seat related response`);
@@ -38,7 +25,6 @@ export const handle = (m: Message): void => {
     const mEmbed = new MessageEmbed()
         .setColor(`#0099ff`)
         .setTitle(`SeAT Related Links`)
-        .setThumbnail(`https://images.evetech.net/${imagetyp}/${eveimage}/logo?size=128`)
         .addFields(
             { name: `\u200B`, value: `[SeAT Login](${seataddr})\n[Operations Calendar](${calendar})\n[Fleet Doctrines](${doctrine})\n[Ship Fittings](${fitting})\n[Ship SRP](${srp})`},
             );
