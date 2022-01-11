@@ -20,7 +20,7 @@ export const handle = (m: Message): void => {
 			const mEmbed = new MessageEmbed()
 			.setColor('#0099ff')
 			.setTitle('SeAT Package Versions')
-			.Fields(
+			.fields(
 			    {
 			        name:`\u200B`,
 			        value: `Seat Docker - [${values[0]}](https://hub.docker.com/r/eveseat/seat)`,
