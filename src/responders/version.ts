@@ -23,31 +23,31 @@ export const handle = (m: Message): void => {
 			.Fields(
 			    [
 			        name:`\u200B`,
-			        value: `Seat Docker - [${values[0]}](https://hub.docker.com/r/eveseat/seat)`
+			        value: `Seat Docker - [${values[0]}](https://hub.docker.com/r/eveseat/seat)`,
 			    ],
 			    [
 			        name:`\u200B`,
-			        value: `API - [${values[1]}](https://github.com/eveseat/api/releases/latest)`
+			        value: `API - [${values[1]}](https://github.com/eveseat/api/releases/latest)`,
 			    ],
 			    [
 			        name:`\u200B`,
-			        value: `Console (Depreciated) - [${values[2]}](https://github.com/eveseat/api/releases/latest)`
+			        value: `Console (Depreciated) - [${values[2]}](https://github.com/eveseat/api/releases/latest)`,
 			    ],
 			    [
 			        name:`\u200B`,
-			        value: `EveAPI - [${values[3]}](https://github.com/eveseat/api/releases/latest)`
+			        value: `EveAPI - [${values[3]}](https://github.com/eveseat/api/releases/latest)`,
 			    ],
 			    [
 			        name:`\u200B`,
-			        value: `Notifications - [${values[4]}](https://github.com/eveseat/api/releases/latest)`
+			        value: `Notifications - [${values[4]}](https://github.com/eveseat/api/releases/latest)`,
 			    ],
 			    [
 			        name:`\u200B`,
-			        value: `Services - [${values[5]}](https://github.com/eveseat/api/releases/latest)`
+			        value: `Services - [${values[5]}](https://github.com/eveseat/api/releases/latest)`,
 			    ],
 			    [
 			        name:`\u200B`,
-			        value: `Web - [${values[6]}](https://github.com/eveseat/api/releases/latest)`
+			        value: `Web - [${values[6]}](https://github.com/eveseat/api/releases/latest)`,
 			    ]
 			);
 		    m.channel.send( { content: `${m.author}`, embeds: [mEmbed] });
