@@ -17,17 +17,15 @@ const fitting = `${seataddr}` + `/fitting`;
 const srp = `${seataddr}` + `/srp`
 
 if (eveimage === undefined && imagetyp === undefined) {
-    eveimage === `1000001`;
-    imagetyp === `corporations`;
+    eveimage = `1000001`;
+    imagetyp = `corporations`;
 }
 if (imagetyp === undefined) {
-    imagetyp === `corporations`;
+    imagetyp = `corporations`;
 }
 if (eveimage === undefined) {
-    eveimage === `1000001`;
+    eveimage = `1000001`;
 }
-
-const botthumbnail = `https://images.evetech.net/${imagetyp}/${eveimage}/logo?size=128`
 
 export const matcher = `!seat`;
 export const handle = (m: Message): void => {
@@ -40,7 +38,7 @@ export const handle = (m: Message): void => {
     const mEmbed = new MessageEmbed()
         .setColor(`#0099ff`)
         .setTitle(`SeAT Related Links`)
-        .setThumbnail(`${botthumbnail}`)
+        .setThumbnail(`https://images.evetech.net/${imagetyp}/${eveimage}/logo?size=128`)
         .addFields(
             { name: `\u200B`, value: `[SeAT Login](${seataddr})\n[Operations Calendar](${calendar})\n[Fleet Doctrines](${doctrine})\n[Ship Fittings](${fitting})\n[Ship SRP](${srp})`},
             );
