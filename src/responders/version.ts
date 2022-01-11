@@ -19,17 +19,38 @@ export const handle = (m: Message): void => {
 		{
 			const mEmbed = new MessageEmbed()
 			.setColor('#0099ff')
-			.setTitle('Current SeAT Package Versions')
-			.addFields(
-				{ name: 'Seat Docker Image', value: `[${values[0]}](https://hub.docker.com/r/eveseat/seat)`, inline: true},              //seatdocker
-				{ name: 'API', value: `[${values[1]}](https://github.com/eveseat/api/releases/latest)`, inline: true},                   //api
-				{ name: 'Console (Depreciated)', value: `[${values[2]}](https://github.com/eveseat/api/releases/latest)`, inline: true}, //seat_console
-				{ name: 'EveAPI', value: `[${values[3]}](https://github.com/eveseat/api/releases/latest)`, inline: true},                //eveapi
-				{ name: 'Notifications', value: `[${values[4]}](https://github.com/eveseat/api/releases/latest)`, inline: true},         //notifications
-				{ name: 'Services', value: `[${values[5]}](https://github.com/eveseat/api/releases/latest)`, inline: true},              //services
-				{ name: 'Web', value: `[${values[6]}](https://github.com/eveseat/api/releases/latest)`, inline: true}                    //web
-                );
-		m.channel.send( { content: `${m.author}`, embeds: [mEmbed] });
+			.setTitle('SeAT Package Versions')
+			.Fields(
+			    [
+			        name:`\u200B`
+			        value: `Seat Docker - [${values[0]}](https://hub.docker.com/r/eveseat/seat)`
+			    ],
+			    [
+			        name:`\u200B`
+			        value: `API - [${values[1]}](https://github.com/eveseat/api/releases/latest)`
+			    ],
+			    [
+			        name:`\u200B`
+			        value: `Console (Depreciated) - [${values[2]}](https://github.com/eveseat/api/releases/latest)`
+			    ],
+			    [
+			        name:`\u200B`
+			        value: `EveAPI - [${values[3]}](https://github.com/eveseat/api/releases/latest)`
+			    ],
+			    [
+			        name:`\u200B`
+			        value: `Notifications - [${values[4]}](https://github.com/eveseat/api/releases/latest)`
+			    ],
+			    [
+			        name:`\u200B`
+			        value: `Services - [${values[5]}](https://github.com/eveseat/api/releases/latest)`
+			    ],
+			    [
+			        name:`\u200B`
+			        value: `Web - [${values[6]}](https://github.com/eveseat/api/releases/latest)`
+			    ]
+			);
+		    m.channel.send( { content: `${m.author}`, embeds: [mEmbed] });
 		})
 		.catch(error => {
             m.channel.send(`${m.author}, unable to determine current versions at this time`);
