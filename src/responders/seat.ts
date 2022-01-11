@@ -2,8 +2,8 @@ import { Message, MessageEmbed } from 'discord.js'
 import * as log from '../lib/console'
 
 const seataddr = process.env.APP_URL;
-const eveimage = process.env.EVE_IMG;
-const imagetyp = process.env.EVE_IMG_TYPE;
+var eveimage = process.env.EVE_IMG;
+var imagetyp = process.env.EVE_IMG_TYPE;
 
 const CALENDAR = `.calendar`;
 const DOCTRINE = `.doctrine`;
