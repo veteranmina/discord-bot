@@ -21,14 +21,8 @@ export const handle = (m: Message): void => {
 			.setColor('#0099ff')
 			.setTitle('SeAT Package Versions')
 			.addFields(
-		        {name:`\u200B`, value: 
-		        `Seat Docker - [${values[0]}](https://hub.docker.com/r/eveseat/seat)\n
-		        API - [${values[1]}](https://github.com/eveseat/api/releases/latest)\n
-		        Console (Depreciated) - [${values[2]}](https://github.com/eveseat/api/releases/latest)\n
-		        EveAPI - [${values[3]}](https://github.com/eveseat/api/releases/latest)\n
-		        Notifications - [${values[4]}](https://github.com/eveseat/api/releases/latest)\n
-		        Services - [${values[5]}](https://github.com/eveseat/api/releases/latest\n
-		        Web - [${values[6]}](https://github.com/eveseat/api/releases/latest)`},
+		        {name:`\u200B`, value:
+		        `Seat Docker - [${values[0]}](https://hub.docker.com/r/eveseat/seat)\nAPI - [${values[1]}](https://github.com/eveseat/api/releases/latest)\nConsole (Depreciated) - [${values[2]}](https://github.com/eveseat/api/releases/latest)\nEveAPI - [${values[3]}](https://github.com/eveseat/api/releases/latest)\nNotifications - [${values[4]}](https://github.com/eveseat/api/releases/latest)\nServices - [${values[5]}](https://github.com/eveseat/api/releases/latest)\nWeb - [${values[6]}](https://github.com/eveseat/api/releases/latest)`},
 			);
 		    m.channel.send( { content: `${m.author}`, embeds: [mEmbed] });
 		})
