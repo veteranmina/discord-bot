@@ -22,31 +22,31 @@ export const handle = (m: Message): void => {
 			.addFields(
 		        {
 		            name:`SeAT Docker`,
-		            value: `[${values[0].name}](${values[0].html_url}\nPublished - ${values[0].published_at})`
+		            value: `[${values[0].name}](${values[0].html_url})\nReleased - ${values[0].published_at}`
 		        },
 		        {
 		            name:`API`,
-		            value: `[${values[1].name}](${values[1].html_url}\nPublished - ${values[1].published_at})`
+		            value: `[${values[1].name}](${values[1].html_url})\nReleased - ${values[1].published_at}`
 		        },
 		        {
 		            name:`Console (Depreciated)`,
-		            value: `[${values[2].name}](${values[2].html_url}\nPublished - ${values[2].published_at})`
+		            value: `[${values[2].name}](${values[2].html_url})\nReleased - ${values[2].published_at}`
 		        },
 		        {
 		            name:`Eve API`,
-		            value: `[${values[3].name}](${values[3].html_url}\nPublished - ${values[3].published_at})`
+		            value: `[${values[3].name}](${values[3].html_url})\nReleased - ${values[3].published_at}`
 		        },
 		        {
 		            name:`Notifications`,
-		            value: `[${values[4].name}](${values[4].html_url}\nPublished - ${values[4].published_at})`
+		            value: `[${values[4].name}](${values[4].html_url})\nReleased - ${values[4].published_at}`
 		        },
 		        {
 		            name:`Services`,
-		            value: `[${values[5].name}](${values[5].html_url}\nPublished - ${values[5].published_at})`
+		            value: `[${values[5].name}](${values[5].html_url})\nReleased - ${values[5].published_at}`
 		        },
 		        {
 		            name:`Web`,
-		            value: `[${values[6].name}](${values[6].html_url}\nPublished - ${values[6].published_at})`
+		            value: `[${values[6].name}](${values[6].html_url})\nReleased - ${values[6].published_at}`
 		        }
 			);
 		    m.channel.send( { content: `${m.author}`, embeds: [mEmbed] });
