@@ -20,8 +20,34 @@ export const handle = (m: Message): void => {
 			.setColor('#0099ff')
 			.setTitle('SeAT Package Versions')
 			.addFields(
-		        {name:`\u200B`, value:
-		        `Seat Docker - [${values[0]}](https://hub.docker.com/r/eveseat/seat)\nAPI - [${values[1]}](https://github.com/eveseat/api/releases/latest)\nConsole (Depreciated) - [${values[2]}](https://github.com/eveseat/api/releases/latest)\nEveAPI - [${values[3]}](https://github.com/eveseat/api/releases/latest)\nNotifications - [${values[4]}](https://github.com/eveseat/api/releases/latest)\nServices - [${values[5]}](https://github.com/eveseat/api/releases/latest)\nWeb - [${values[6]}](https://github.com/eveseat/api/releases/latest)`},
+		        {
+		            name:`SeAT Docker`,
+		            value: `[${values[0].name}](${values[0].html_url}\nPublished - ${values[0].published_at}`)
+		        },
+		        {
+		            name:`API`,
+		            value: `[${values[1].name}](${values[1].html_url}\nPublished - ${values[1].published_at}`)
+		        },
+		        {
+		            name:`Console (Depreciated)`,
+		            value: `[${values[2].name}](${values[2].html_url}\nPublished - ${values[2].published_at}`)
+		        },
+		        {
+		            name:`Eve API`,
+		            value: `[${values[3].name}](${values[3].html_url}\nPublished - ${values[3].published_at}`)
+		        },
+		        {
+		            name:`Notifications`,
+		            value: `[${values[4].name}](${values[4].html_url}\nPublished - ${values[4].published_at}`)
+		        },
+		        {
+		            name:`Services`,
+		            value: `[${values[5].name}](${values[5].html_url}\nPublished - ${values[5].published_at}`)
+		        },
+		        {
+		            name:`Web`,
+		            value: `[${values[6].name}](${values[6].html_url}\nPublished - ${values[6].published_at}`)
+		        },
 			);
 		    m.channel.send( { content: `${m.author}`, embeds: [mEmbed] });
 		})
@@ -33,7 +59,7 @@ export const handle = (m: Message): void => {
 function getVersion(version: string) {
 return axios.get(version)
   .then(r => {
-    return (r.data.value)
+    return (r.data)
   })
   .catch(error => {
     log.debug('Encountered error in !versions response')

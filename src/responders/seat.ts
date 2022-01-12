@@ -3,12 +3,6 @@ import * as log from '../lib/console'
 
 const seataddr = process.env.APP_URL;
 
-const CALENDAR = `.calendar`;
-const DOCTRINE = `.doctrine`;
-const FITTING = `.fitting`;
-const SEAT = `.seat`;
-const SRP = `.srp`;
-
 const calendar = `${seataddr}` + `/calendar/operation`;
 const doctrine = `${seataddr}` + `/fitting/doctrine`;
 const fitting = `${seataddr}` + `/fitting`;
