@@ -2,13 +2,13 @@ import { Message, MessageEmbed } from 'discord.js'
 import * as log from '../lib/console'
 import axios from 'axios'
 
-const seatdocker = getVersion(`https://img.shields.io/docker/v/eveseat/seat.json`)
-const api = getVersion(`https://img.shields.io/github/v/release/eveseat/api.json`)
-const seat_console = getVersion(`https://img.shields.io/github/v/release/eveseat/console.json`)
-const eveapi = getVersion(`https://img.shields.io/github/v/release/eveseat/eveapi.json`)
-const notifications = getVersion(`https://img.shields.io/github/v/release/eveseat/notifications.json`)
-const services = getVersion(`https://img.shields.io/github/v/release/eveseat/services.json`)
-const web = getVersion(`https://img.shields.io/github/v/release/eveseat/web.json`)
+const seatdocker = getVersion(`https://api.github.com/repos/eveseat/seat-docker/releases/latest`)
+const api = getVersion(`https://api.github.com/repos/eveseat/api/releases/latest`)
+const seat_console = getVersion(`https://api.github.com/repos/eveseat/console/releases/latest`)
+const eveapi = getVersion(`https://api.github.com/repos/eveseat/eveapi/releases/latest`)
+const notifications = getVersion(`https://api.github.com/repos/eveseat/notifications/releases/latest`)
+const services = getVersion(`https://api.github.com/repos/eveseat/services/releases/latest`)
+const web = getVersion(`https://api.github.com/repos/eveseat/web/releases/latest`)
 
 export const matcher = `!version`
 export const handle = (m: Message): void => {
