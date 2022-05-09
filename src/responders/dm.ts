@@ -11,6 +11,6 @@ export const handle = (m: Message): void => {
     m.channel.send(`${m.author}, The SeAT address is currently not set`);
   }
   else {
-    m.author.send('Here is the link to authorize discord roles ${seataddr}')
+    m.author.send(`Here is the link to authorize discord roles ${seataddr}`)
   }
 };
