@@ -15,7 +15,7 @@ export const handle = (m: Message): void => {
       .setColor('#0099ff')
       .setTitle('Eve Online Tools')
       .addFields(
-          { name: `\u200B`, value: `[Galaxy Mapper](${mapper})\n[Alliance ZkillBoard](${zkill})` },
+          { name: `\u200B`, value: `[Wormhole Mapper](${mapper})\n[Alliance ZkillBoard](${zkill})` },
           );
   m.channel.send( { content: `${m.author}`, embeds: [mEmbed] });
 

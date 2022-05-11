@@ -14,6 +14,10 @@ export const matcher = `!version`
 export const handle = (m: Message): void => {
 	log.debug(`message from ${m.author.username}. sending a seat related response`);
 
+    if (versionoff !== undefined) {
+      return;
+    }
+
 	Promise.all([seatdocker, api, seat_console, eveapi, notifications, services, web])
 		.then(function(values)
 		{

@@ -8,6 +8,7 @@ const mapper = process.env.MAPPER;
 const zaddr = process.env.ZADDR;
 const discordchan = process.env.DISCORCHAN;
 const dmchanlck = process.env.DMLCKCHANNEL;
+const versionoff = process.env.PROCESSOFF;
 
 if (token === undefined) {
   log.error(`no discord token found in env. set \`TOKEN\` bye!`);
@@ -32,6 +33,10 @@ if (mapper === undefined) {
 
 if (zaddr === undefined) {
   log.error(`no zkillboard address found in env. set \`ZADDR\``);
+}
+
+if (versionoff === undefined) {
+  log.error(`.env \`VERSIONOFF\` not defined with 1, !version command enabled`);
 }
 
 const client: Client = new Client({
