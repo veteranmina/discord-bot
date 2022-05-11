@@ -2,6 +2,8 @@ import { Message, MessageEmbed } from 'discord.js'
 import * as log from '../lib/console'
 import axios from 'axios'
 
+const versionoff = process.env.VERSIONOFF;
+
 let seatdocker = getVersion(`https://api.github.com/repos/eveseat/seat-docker/releases/latest`)
 let api = getVersion(`https://api.github.com/repos/eveseat/api/releases/latest`)
 let seat_console = getVersion(`https://api.github.com/repos/eveseat/console/releases/latest`)

@@ -8,7 +8,7 @@ const mapper = process.env.MAPPER;
 const zaddr = process.env.ZADDR;
 const discordchan = process.env.DISCORCHAN;
 const dmchanlck = process.env.DMLCKCHANNEL;
-const versionoff = process.env.PROCESSOFF;
+const versionoff = process.env.VERSIONOFF;
 
 if (token === undefined) {
   log.error(`no discord token found in env. set \`TOKEN\` bye!`);
