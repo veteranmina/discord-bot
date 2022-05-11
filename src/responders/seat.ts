@@ -14,14 +14,13 @@ export const handle = (m: Message): void => {
 
   if (seataddr === undefined) {
     m.channel.send(`${m.author}, The SeAT address is currently not set`);
+    return;
   }
-  else {
-    const mEmbed = new MessageEmbed()
-        .setColor(`#0099ff`)
-        .setTitle(`SeAT Related Links`)
-        .addFields(
-            { name: `\u200B`, value: `[SeAT Login](${seataddr})\n[Operations Calendar](${calendar})\n[Fleet Doctrines](${doctrine})\n[Ship Fittings](${fitting})\n[Ship SRP](${srp})`},
-            );
-    m.channel.send( { content: `${m.author}`, embeds: [mEmbed] });
-  }
+  const mEmbed = new MessageEmbed()
+      .setColor(`#0099ff`)
+      .setTitle(`SeAT Related Links`)
+      .addFields(
+          { name: `\u200B`, value: `[SeAT Login](${seataddr})\n[Operations Calendar](${calendar})\n[Fleet Doctrines](${doctrine})\n[Ship Fittings](${fitting})\n[Ship SRP](${srp})`},
+          );
+  m.channel.send( { content: `${m.author}`, embeds: [mEmbed] });
 };
