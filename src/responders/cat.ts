@@ -6,7 +6,7 @@ export const matcher = '!cat';
 export const handle = (m: message): void => {
   log.debug('message from ${m.author.username}. sending a bot related response');
 
-  Axios.get('https://www.thatcopy.pw.catapi/rest/');
+  Axios.get('https://www.thatcopy.pw.catapi/rest/')
     .then(r => {
       const mEmbed = new MessageEmbed()
         .setColor('#0099ff')
