@@ -3,7 +3,7 @@ import * as log from '../lib/console'
 import Axios from 'axios'
 
 export const matcher = '!cat';
-export const handle = (m: message): void => {
+export const handle = (m: Message): void => {
   log.debug('message from ${m.author.username}. sending a bot related response');
 
   Axios.get('https://www.thatcopy.pw.catapi/rest/')
@@ -13,5 +13,4 @@ export const handle = (m: message): void => {
         .setTitle('Cats, so many cats')
         .setImage('r.data.webpurl')
     })
-  break;
 };
