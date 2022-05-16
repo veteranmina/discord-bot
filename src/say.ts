@@ -3,6 +3,7 @@ import { IHandle } from "./lib/interfaces"
 import * as log from './lib/console'
 
 import * as ping from './responders/ping'
+import * as bing from './responders/bing'
 import * as eve from './responders/eve'
 import * as seat from './responders/seat'
 import * as tools from './responders/tools'
