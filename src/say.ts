@@ -16,7 +16,7 @@ export class Handler {
 
   constructor() {
     this.handlers.push({matcher: ping.matcher, handle: ping.handle}); // bot ping
-    this.handlers.push({matcher: bing.matcher, handle: dm.handle}); // bot bing
+    this.handlers.push({matcher: bing.matcher, handle: bing.handle}); // bot bing
     this.handlers.push({matcher: eve.matcher, handle: eve.handle}); // eve
     this.handlers.push({matcher: seat.matcher, handle: seat.handle}); // seat
     this.handlers.push({matcher: tools.matcher, handle: tools.handle}); // tools
